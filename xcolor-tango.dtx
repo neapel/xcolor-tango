@@ -1,0 +1,345 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2015 by Pascal Germroth <pascal at germroth.name>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%
+%     http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is section of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<package>\NeedsTeXFormat{LaTeX2e}[2011/06/27]
+%<package>\ProvidesPackage{xcolor-tango}
+%<package>  [2015/02/24 v0.1 xcolor definitions for the tango project]
+%
+%<*driver>
+\documentclass[a4paper]{ltxdoc}
+\RecordChanges
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor-tango}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{cleveref}
+
+\DeclareUrlCommand\email{\urlstyle{tt}}
+
+\newcommand*{\pkg}[1]{\textsf{#1}}
+\newcommand*{\opt}[1]{\texttt{#1}}
+\newcommand\tango{\textsf{tango}}
+\newcommand\thispkg{\pkg{xcolor-tango}}
+\newcommand\kvpkg{\pkg{kvoptions}}
+\newcommand\xcolpkg{\pkg{xcolor}}
+
+\begin{document}
+  \DocInput{xcolor-tango.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{v0.1}{2015/02/24}{Forked from xcolor-solarized}
+%
+% \GetFileInfo{xcolor-tango.sty}
+%
+% \title{^^A
+%   The \thispkg{} package^^A
+%   \thanks{^^A
+%     This document corresponds to \thispkg~\fileversion,
+%     dated~\filedate.^^A
+%   }^^A
+%  }
+% \author{Pascal Germroth\\ \email{pascal@germroth.name}}
+% \date{\filedate}
+% \thispagestyle{empty}
+% \maketitle
+%
+% \begin{abstract}
+%   Built on top of the \xcolpkg{} package, as a fork of the
+%   \pkg{xcolor-solarized} package, the \thispkg{} package defines the
+%   colors of the \href{http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines#Color_Palette}{Tango Desktop Project},
+%   for use in documents typeset with \LaTeX{} \& friends.
+% \end{abstract}
+%
+% \tableofcontents\newpage
+%
+%
+% \section{User's guide}
+%
+% \subsection{Installation}
+%
+% \subsubsection{Package dependencies}
+%
+% The \thispkg{} package requires relatively up-to-date versions of the
+% \xcolpkg{} and \kvpkg{} packages, both of which ship with popular \TeX{}
+% distributions. It loads those two packages without any options.
+%
+% \subsubsection{Installing \thispkg{}}
+%
+% Once the package is officially released on
+% \href{http://www.ctan.org}{CTAN},
+% you should be able to install it directly through your package manager.
+% However, if you need to install \thispkg{} manually, you should run
+%^^A
+% \begin{verbatim}
+%   latex xcolor-tango.ins\end{verbatim}
+%^^A
+% and copy the file called |xcolor-tango.sty| to a path
+% where \LaTeX{} (or your preferred typesetting engine) can find it.
+% To generate the documentation, run
+%^^A
+% \begin{verbatim}
+%   pdflatex xcolor-tango.dtx\end{verbatim}
+%^^A%
+% twice.
+%
+% \subsection{Usage}
+%
+% \subsubsection{Loading \texorpdfstring{\thispkg{}}{xcolor-tango}}
+%
+% Simply write
+%^^A
+% \begin{verbatim}
+%   \usepackage{xcolor-tango}\end{verbatim}
+%^^A
+% somewhere in your preamble.
+%
+% You may want to load the \xcolpkg{} and \kvpkg{} packages with some
+% options; in that case, make sure those options are passed to those two
+% packages \emph{before} loading the \thispkg{} package.
+%
+% \subsubsection{Package option}
+%
+% The \thispkg{} currently offers only one option:
+%^^A
+% \begin{description}
+%   \item[\opt{prefix}|=|\meta{prefix}]\leavevmode
+%
+%      Defines the colors with prefix \meta{prefix},
+%      for namespacing purposes; the default prefix is empty.
+%
+% \end{description}
+%^^A
+% For to avoid clashes with other packages, you may want to use a custom prefix.
+% The \opt{prefix} option allows you to do just that.
+% For instance, if you want to use the prefix ``|tango-|'', you should load the
+% package like so:
+%^^A
+% \begin{verbatim}
+%   \usepackage[prefix=tango-]{xcolor-tango}\end{verbatim}
+%
+% \subsubsection{Using the \tango{} colors in your document}
+%
+% \begin{figure}\centering
+%   \tangoPalette
+%   \caption{The \tango{} palette}
+%   \label{palette}
+% \end{figure}
+%
+% Loading the \thispkg{} package defines those colors at the global scope of
+% your document, using the \xcolpkg{} package; you should refer to the
+% documentation of the latter for more details about how to use colors in
+% your documents.
+%
+% The defined colors are shown in \cref{palette}.
+% The name under which \thispkg{} defines each color has the form
+% \meta{prefix}\meta{name}, where
+%^^A
+% \begin{itemize}
+%   \item \meta{prefix} corresponds to the value of the prefix set via the
+% package option \opt{prefix}, and
+%   \item \meta{name} is the official name of the color (see \cref{palette}).
+% \end{itemize}
+%^^A
+% For example, by default (if you don't set a custom prefix),
+% a red color will be available in your document
+% under the name ``|scarletred2|'', when using the example prefix it will be
+% available as ``|tango-scarletred2|'' instead.
+%
+% The \thispkg{} package also defines one convenient user-level command:
+%^^A
+% \begin{description}
+%   \item[\cmd{\tangoPalette}]\leavevmode
+%
+%      Prints the colors of the palette,
+%      along with their official names
+% \end{description}
+%^^A
+% This command was used to produce \cref{palette}.
+% Use it as a tool for consulting the \tango{} palette within your
+% documents during the writing phase, without having to refer to some
+% external resource.
+%
+% \subsection{Bug reports and feature suggestions}
+%
+% The development version of \thispkg{} is currently hosted on GitHub at
+% \href{https://github.com/neapel/xcolor-tango}
+%   {neapel/xcolor-tango}.
+% If you find an issue that this manual does not mention,
+% if you would like to see a feature implemented in the package,
+% or if you can think of ways in which the documentation could be
+% improved, please open a ticket in the GitHub repository's issue tracker;
+% alternatively, you can send me an email at
+% \email{pascal@germroth.name}
+%
+% \subsection{Acknowledgments}
+%
+% Thanks to Uwe Kern, author of the \xcolpkg{} package, Heiko Oberdiek, author
+% of the \kvpkg{} package, Julien Cretel, author of the \pkg{xcolor-solarized}
+% package, and the Free Desktop Project for providing the \tango{} color palette.
+%
+% \StopEventually{}
+%
+%
+% \section{Implementation}
+%
+% Be aware that, for ``namespacing'', the \thispkg{} package uses the
+% prefix ``|tango|'' (followed by an |@| character) throughout.
+%
+% \subsection{Required packages}
+%
+% \thispkg{} requires the following two packages:
+%    \begin{macrocode}
+\RequirePackage{xcolor}[2007/01/21]
+\RequirePackage{kvoptions}[2011/06/30]
+%    \end{macrocode}
+%
+% \subsection{Package options}
+%
+% First, we set up \kvpkg{}.
+%    \begin{macrocode}
+\SetupKeyvalOptions{
+  family=tango,
+  prefix=tango@
+}
+%    \end{macrocode}
+% Then, we declare the \opt{prefix} key-value option, with default value
+% ``|tango-|'', and we throw an error if any other option is passed to the
+% \thispkg{} package.
+%    \begin{macrocode}
+\DeclareStringOption[]{prefix}
+\DeclareDefaultOption{%
+  \OptionNotUsed
+  \PackageError{xcolor-tango}{Unknown `\CurrentOption' option}
+}
+\ProcessKeyvalOptions*
+%    \end{macrocode}
+%
+% \subsection{Colour definitions}
+%
+% \begin{macro}{\tango@definecolor}
+%   Here is a convenient internal macro for defining colors with a custom
+%   prefix.
+%    \begin{macrocode}
+\newcommand\tango@definecolor[2]
+  {\expandafter\definecolor\expandafter{\tango@prefix #1}{RGB}{#2}}
+%    \end{macrocode}
+% \end{macro}
+% We now define the 27 colors based on RGB values from the
+% published GIMP palette.
+%    \begin{macrocode}
+\tango@definecolor{butter1}    {252, 233,  79}
+\tango@definecolor{butter2}    {237, 212,   0}
+\tango@definecolor{butter3}    {196, 160,   0}
+\tango@definecolor{chameleon1} {138, 226,  52}
+\tango@definecolor{chameleon2} {115, 210,  22}
+\tango@definecolor{chameleon3} { 78, 154,   6}
+\tango@definecolor{orange1}    {252, 175,  62}
+\tango@definecolor{orange2}    {245, 121,   0}
+\tango@definecolor{orange3}    {206,  92,   0}
+\tango@definecolor{skyblue1}   {114, 159, 207}
+\tango@definecolor{skyblue2}   { 52, 101, 164}
+\tango@definecolor{skyblue3}   { 32,  74, 135}
+\tango@definecolor{plum1}      {173, 127, 168}
+\tango@definecolor{plum2}      {117,  80, 123}
+\tango@definecolor{plum3}      { 92,  53, 102}
+\tango@definecolor{chocolate1} {233, 185, 110}
+\tango@definecolor{chocolate2} {193, 125,  17}
+\tango@definecolor{chocolate3} {143,  89,   2}
+\tango@definecolor{scarletred1}{239,  41,  41}
+\tango@definecolor{scarletred2}{204,   0,   0}
+\tango@definecolor{scarletred3}{164,   0,   0}
+\tango@definecolor{aluminium1} {238, 238, 236}
+\tango@definecolor{aluminium2} {211, 215, 207}
+\tango@definecolor{aluminium3} {186, 189, 182}
+\tango@definecolor{aluminium4} {136, 138, 133}
+\tango@definecolor{aluminium5} { 85,  87,  83}
+\tango@definecolor{aluminium6} { 46,  52,  54}
+%    \end{macrocode}
+%
+% \begin{macro}{\tango@show}
+%   Display the color and its name, given the unprefixed name.
+%   \begin{macrocode}
+\newcommand\tango@show[1]{%
+  \colorbox{\tango@prefix #1}{\color{white}X\color{black}X}%
+  \textcolor{\tango@prefix #1}{X} \texttt{#1}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{User-level macro}
+%
+% \begin{macro}{\tangoPalette}
+% Finally, here is a user-level macro for printing the palette in a document.
+%    \begin{macrocode}
+\newcommand{\tangoPalette}{%
+  \noindent
+  \begin{tabular}{lll}
+    \tango@show{butter1} &
+    \tango@show{butter2} &
+    \tango@show{butter3} \\[2pt]
+    \tango@show{chameleon1} &
+    \tango@show{chameleon2} &
+    \tango@show{chameleon3} \\[2pt]
+    \tango@show{orange1} &
+    \tango@show{orange2} &
+    \tango@show{orange3} \\[2pt]
+    \tango@show{skyblue1} &
+    \tango@show{skyblue2} &
+    \tango@show{skyblue3} \\[2pt]
+    \tango@show{plum1} &
+    \tango@show{plum2} &
+    \tango@show{plum3} \\[2pt]
+    \tango@show{chocolate1} &
+    \tango@show{chocolate2} &
+    \tango@show{chocolate3} \\[2pt]
+    \tango@show{scarletred1} &
+    \tango@show{scarletred2} &
+    \tango@show{scarletred3} \\[2pt]
+    \tango@show{aluminium1} &
+    \tango@show{aluminium2} &
+    \tango@show{aluminium3} \\[2pt]
+    \tango@show{aluminium4} &
+    \tango@show{aluminium5} &
+    \tango@show{aluminium6}
+  \end{tabular}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \Finale
+\endinput
